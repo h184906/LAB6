@@ -1,45 +1,56 @@
 package no.hvl.dat100.varelager;
 
 public class Varelager {
+    protected Vare[] varelager; 
+    protected int antall;
 
-	protected Vare[] varer;
-	protected int antall;
-	
-	public Varelager(int n) {
-		
-		throw new TODO("Varelager");
-
-	}
+    public Varelager(int n) {
+        varelager = new Vare[n];
+        antall = 0;
+    }
 	
 	public Vare[] getVarer() {
 		
-		throw new TODO("getVarer");
+		return this.varelager;
 
 	}
 	
 	public boolean leggTilVare(Vare v) {
-		
-		throw new TODO("leggTilVare");
+		if (antall < varelager.length) {
+			varelager[antall] = v;
+			antall++;
+			return true;
+		} else {
+			return false;
+		}
 
 	}
 	
 	public boolean leggTil(int varenr, String navn, double pris) {
-		
-		throw new TODO("leggTil");
 
+		Vare nyvare = new Vare(varenr, navn, pris);
+		return leggTilVare(nyvare);
 	}
 	
 	public Vare finnVare(int varenr) {
-			
-		throw new TODO("finnVare");
 
+		for (int i = 0; i < varelager.length; i++) {
+			if (varelager[i].getVarenr() == varenr) {
+				return varelager[i];
+			}
+		}
+		return null;
 	}
 	
 	private String SEP = "==============================";
 	
 	public void printVarelager() {
 				
-		throw new TODO("printVarelager");
+		System.out.println(SEP);
+		for (int i = 0; i < varelager.length; i++) {
+			System.out.println((varelager[i].toString()));
+		}
+		System.out.println(SEP);
 
 	}
 	

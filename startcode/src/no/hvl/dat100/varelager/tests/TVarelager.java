@@ -14,6 +14,6 @@ public class TVarelager extends Varelager {
 	}
 	
 	public Vare[] getTVarer () {
-		return this.varer;
+		return this.varelager;
 	}
 }
